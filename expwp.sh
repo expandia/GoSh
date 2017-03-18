@@ -101,6 +101,8 @@ wp db create
 wp core install --url=localhost:8080 --title=$varname --admin_user=$varname --admin_password=$varname --admin_email=$varname@expandia.co
 # Set theme to our child theme
 wp theme activate $varname
+# Set permalinks
+wp rewrite structure '/%postname%'
 
 printf "
 \n \n \n \n \n 
