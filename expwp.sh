@@ -155,22 +155,34 @@ printf "
 Plugins are all installed and activated :)
 
 \n
-
-Starting server, please wait...
-
-\n
 ##################
 
 \n \n \n \n \n"
 
-# Change directory to root
-cd ../
-# Start WP server
-wp server &
+for i in {1..20}
+do
+	echo "Want to add some pages? (y/n)"
+	read pageBoolean
+	
+	if [ "$pageBoolean" = "y" ]; then
+		
+		echo "Enter page name"
+		read pageName
+
+		echo "Enter page template (home, about, contact or page)"
+		read pageTemplate
+
+		# Create Page
+		wp post create --post_type=page --post_title='$pageName' --page_template='$pageTemplate'
+	
+	else
+		break
+
+	fi
+done
 
 # Get back into theme file
-cd wp-content/themes/$varname
-
+cd /themes/$varname
 
 echo "Do you want to open this project in Sublime? (y/n)"
 read sublimeBoolean
@@ -185,3 +197,8 @@ if [ "$chromeBoolean" = "y" ]; then
 	# Open in default browser
 	open http://localhost:8080/wp-admin
 fi
+
+# Change directory to root
+cd ../
+# Start WP server
+wp server &
