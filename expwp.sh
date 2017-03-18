@@ -94,9 +94,9 @@ rm -r */
 # Pull Git repository for GO
 git clone http://github.com/expandia/go.git
 # Pull git repository for go-child
-git clone http://github.com/expandia/go-child--timber.git
+git clone http://github.com/expandia/go-child--twig.git
 # Rename go-child to cliet name
-mv go-child--timber $varname
+mv go-child--twig $varname
 
 # Enter child directory
 cd $varname
