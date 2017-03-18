@@ -8,3 +8,4 @@ So many prerequisites it's not worth running it at this stage. Edit
 - Directory variable
 - Change all cd commands to  `$ cd $root/path`
 - Initiate git repo in `wp-content/themes/$varname`
+- Check for local version of assets before downloading them
