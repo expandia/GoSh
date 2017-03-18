@@ -1,34 +1,5 @@
 #!/bin/bash
 
-
-
-
-####################################
-
-
-
-
-
-# 	TOOOOO DOOOOOOO !!!!!!
-# 	- Update plugins
-#	- Fix last few lines to get directory right.
-#   - Add pages
-
-
-
-
-
-
-####################################
-
-
-
-
-
-
-
-
-
 echo Hi, please enter the chosen directory name...
 
 # Declare file name as varname variable
