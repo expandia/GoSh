@@ -165,7 +165,7 @@ do
 		read pageTemplate
 
 		# Create Page
-		wp post create --post_type=page --post_title='$pageName' --page_template='$pageTemplate'
+		wp post create --post_type=page --post_title=$pageName --page_template='templates/'$pageTemplate'.php'
 	
 	else
 		break
