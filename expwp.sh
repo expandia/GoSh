@@ -114,6 +114,7 @@ Time to create our wp-config file and database, then install Wordpress!
 ##################
 \n \n \n \n \n"
 
+
 # Create wp-config
 wp core config --dbname=$varname --dbuser=localhost --dbpass=localhost --dbhost=localhost
 # Create DB
@@ -133,6 +134,7 @@ Two secs, I'll just grab the plugins and extract then activate them
 ##################
 \n \n \n \n \n"
 
+
 # Get back to wp-content
 cd ../../
 # Remove current plugins
@@ -145,6 +147,8 @@ tar -xzvf plugins.tar.gz
 rm -rf plugins.tar.gz
 # WP plugins
 wp plugin activate --all
+# Update all plugins
+wp plugin update --all
 
 
 printf "
@@ -158,6 +162,13 @@ Plugins are all installed and activated :)
 ##################
 
 \n \n \n \n \n"
+
+
+# ----------------------
+
+# Add pages
+
+# ----------------------
 
 for i in {1..20}
 do
@@ -181,6 +192,13 @@ do
 	fi
 done
 
+
+# ----------------------
+
+# Open in Sublime & Chrome
+
+# ----------------------
+
 # Get back into theme file
 cd /themes/$varname
 
@@ -198,6 +216,12 @@ if [ "$chromeBoolean" = "y" ]; then
 	open http://localhost:8080/wp-admin
 fi
 
+
+# ----------------------
+
+# Start server
+
+# ----------------------
 # Change directory to root
 cd ../
 # Start WP server
