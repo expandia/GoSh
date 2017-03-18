@@ -1,13 +1,18 @@
 #!/bin/bash
 
-cd ~/code
-
+# Ask for name
 echo Hi, please enter the chosen directory name...
-
-# Declare file name as varname variable
+# Get name, save as variable
 read varname
+
+# Go into code directory
+cd $HOME/code
+
 # Create directory under chosen name
 mkdir $varname
+
+# Make vairable to hold location name aka, the root of this project.
+LOC="$HOME/code/$varname"
 
 # Start Mamp
 open /Applications/MAMP\ PRO/MAMP\ PRO.app/
@@ -29,7 +34,7 @@ BRB.
 \n \n \n \n \n"
 
 # Enter newly created file
-cd $varname
+cd $LOC
 
 # Get Wordpress
 wget https://wordpress.org/latest.tar.gz
@@ -38,11 +43,11 @@ tar -xzvf latest.tar.gz
 # Remove zip folder
 rm -rf latest.tar.gz
 # Enter wordpress directory
-cd wordpress
+cd $LOC/wordpress
 # Move files to root folder
-mv * ../
+mv * $LOC
 # Move up a directory to root folder
-cd ../
+cd $LOC
 # Remove redundent wordpress folder
 rm -rf wordpress
 
@@ -60,7 +65,7 @@ I'll just grab our starter theme and child theme.
 \n \n \n \n \n"
 
 # Enter wordpress themes directory
-cd wp-content/themes
+cd $LOC/wp-content/themes
 # Remove all existing theme directories
 rm -r */
 
@@ -72,7 +77,7 @@ git clone http://github.com/expandia/go-child.git
 mv go-child $varname
 
 # Enter child directory
-cd $varname
+cd $LOC/wp-content/themes/$varname
 # Remove link from child directory to git
 rm -rf .git
 
@@ -110,7 +115,7 @@ Two secs, I'll just grab the plugins and extract then activate them
 
 
 # Get back to wp-content
-cd ../../
+cd $LOC/wp-content
 # Remove current plugins
 rm -rf plugins
 # Get plugins
@@ -174,13 +179,13 @@ done
 # ----------------------
 
 # Get back into theme file
-cd /themes/$varname
+cd $LOC/wp-content/themes/$varname
 
 echo "Do you want to open this project in Sublime? (y/n)"
 read sublimeBoolean
 if [ "$sublimeBoolean" = "y" ]; then
 	# Open in sublime
-	cd themes/$varname && subl .
+	cd $LOC/wp-content/themes/$varname && subl .
 fi
 
 echo "Open in Chrome? (y/n)"
@@ -197,6 +202,6 @@ fi
 
 # ----------------------
 # Change directory to root
-cd ../
+cd $LOC
 # Start WP server
 wp server &
