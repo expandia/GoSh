@@ -102,7 +102,7 @@ wp core install --url=localhost:8080 --title=$varname --admin_user=$varname --ad
 # Set theme to our child theme
 wp theme activate $varname
 # Set permalinks
-wp rewrite structure '/%postname%'
+wp rewrite structure '/%postname%' --hard
 
 printf "
 \n \n \n \n \n 
