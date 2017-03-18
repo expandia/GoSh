@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ~/code
+
 echo Hi, please enter the chosen directory name...
 
 # Declare file name as varname variable
