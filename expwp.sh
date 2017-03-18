@@ -93,7 +93,7 @@ wp core config --dbname=$varname --dbuser=localhost --dbpass=localhost --dbhost=
 # Create DB
 wp db create
 # Install WP
-wp core install --url=localhost --title=$varname --admin_user=$varname --admin_password=$varname --admin_email=$varname@expandia.co
+wp core install --url=localhost:8080 --title=$varname --admin_user=$varname --admin_password=$varname --admin_email=$varname@expandia.co
 
 
 printf "
