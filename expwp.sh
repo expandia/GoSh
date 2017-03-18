@@ -36,8 +36,15 @@ BRB.
 # Enter newly created file
 cd $LOC
 
-# Get Wordpress
-wget https://wordpress.org/latest.tar.gz
+# Check code folder for copy of WP
+if [[ -f  $HOME/code/latest.tar.gz ]]; then
+	cp -R $HOME/code/latest.tar.gz $LOC
+
+else
+	# Get Wordpress
+	wget https://wordpress.org/latest.tar.gz
+fi
+
 # Extract wordpress from zip
 tar -xzvf latest.tar.gz
 # Remove zip folder
@@ -103,6 +110,15 @@ wp core install --url=localhost:8080 --title=$varname --admin_user=$varname --ad
 wp theme activate $varname
 # Set permalinks
 wp rewrite structure '/%postname%' --hard
+# Create home page
+wp post create --post_type=page --post_title='Home' --page_template='templates/home.php' --post_status='publish'
+# Create blog page
+wp post create --post_type=page --post_title='Blog' --page_template='templates/blog-feed.php' --post_status='publish'
+# Set static homepage for home and blog
+wp option update page_on_front 3
+wp option update page_for_posts 4
+# Set option to show front page
+wp option update show_on_front page
 
 printf "
 \n \n \n \n \n 
