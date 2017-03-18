@@ -94,7 +94,8 @@ wp core config --dbname=$varname --dbuser=localhost --dbpass=localhost --dbhost=
 wp db create
 # Install WP
 wp core install --url=localhost:8080 --title=$varname --admin_user=$varname --admin_password=$varname --admin_email=$varname@expandia.co
-
+# Set theme to our child theme
+wp theme activate $varname
 
 printf "
 \n \n \n \n \n 
